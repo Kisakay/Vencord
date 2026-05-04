@@ -308,9 +308,9 @@ export default definePlugin({
                     return trackData.name;
                 case NameFormat.AlbumName:
                     return trackData.album || settings.store.statusName
-                        .replace("{artist}", trackData.artist || "")
-                        .replace("{album}", trackData.album || "")
-                        .replace("{title}", trackData.name || "");
+                        .replaceAll("{artist}", trackData.artist || "")
+                        .replaceAll("{album}", trackData.album || "")
+                        .replaceAll("{title}", trackData.name || "");
                 default:
                     return settings.store.statusName
                         .replaceAll("{artist}", trackData.artist || "")
